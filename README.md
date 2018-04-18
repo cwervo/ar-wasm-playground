@@ -7,3 +7,9 @@ parcel build index.html --out-dir docs --public-url "."
 ```
 
 & push, don't forget to sync to the Glitch side as well!!
+
+---
+
+## A fun little experiment
+
+Three.ar.js + WebAssembly (via Rust) + A-Frame — wow, yay!!
