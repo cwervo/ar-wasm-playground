@@ -3,7 +3,7 @@ import * as AFRAME from 'aframe';
 require('./three.ar.js')
 // <script src="https://rawgit.com/chenzlabs/aframe-ar/468a7d9/dist/aframe-ar.min.js"></script>
 require('./aframe-ar-min.ar.js')
-import * as wasm from './wasm.rs';
+import {add_one} from './add_one.rs';
 
 // Mostly from: https://github.com/google-ar/three.ar.js/blob/a36b9d1ba85a8a11e54622c6d0d29e7c028a636c/src/ARUtils.js
 // but with a couple style tweaks (to counter A-Frame + make it transparent)
@@ -45,7 +45,7 @@ AFRAME.registerComponent('animate-scale-wasm', {
         timeMult: { value : 0.1, type : "number" }
     },
     tick : function () {
-        this.data.counter = wasm.add_one(this.data.counter);
+        this.data.counter = add_one(this.data.counter);
         let s = Math.sin(this.data.counter * this.data.timeMult);
         this.el.setAttribute('scale', `${s} ${s} ${s}`);
         // this.el.object3D.scale.multiplyScalar(Math.sin(this.data.counter * 0.1));
